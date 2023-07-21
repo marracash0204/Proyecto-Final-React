@@ -18,7 +18,7 @@ Este proyecto de *Orion Cosmetics* es una aplicación web construida con React q
 
 1. Clona este repositorio en tu máquina local:
 
-git clone <url-del-repositorio>
+git clone <https://github.com/marracash0204/Proyecto-Final-React.git>
 cd entrega-final-react
 
 
@@ -75,7 +75,8 @@ contexts/: Contiene contextos de React para gestionar el estado global de la apl
 App.js: Componente raíz de la aplicación.
 index.js: Punto de entrada de la aplicación.
 package.json: Archivo de configuración de npm.
-Contribución
+Contribución.
+
 Las contribuciones son bienvenidas. Si encuentras errores o mejoras en el proyecto, no dudes en hacer una solicitud de pull.
 
 ## Licencia

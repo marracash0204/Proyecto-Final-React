@@ -5,27 +5,24 @@ import './NavBar.css'
 const NavBar = () => {
   return (
     <header>
-        <Link to="/">
-          <h1>Orion Cosmetics</h1>
-        </Link>
+      <Link to="/">
+        <img src="../img/logo.png" className='imgMarolio' alt="Logo Marolio" />
+      </Link>
 
-        <nav>
-            <ul>
-                <li> 
-                    <NavLink to="/categoria/2"> Polvos </NavLink>
-                </li>
+      <nav>
+        <ul>
+          <li>
+            <NavLink className="miBtn" to="/categoria/2"> Lácteos </NavLink>
+          </li>
 
-                <li>  
-                    <NavLink to="/categoria/3"> Labiales </NavLink>
-                </li>
-                <li>
-                   <NavLink to="/categoria/4"> Sombras </NavLink>
-                </li>
-                
-            </ul>
-        </nav>
+          <li>
+            <NavLink className="miBtn" to="/categoria/3"> Almacén </NavLink>
+          </li>
 
-        <CartWidget/>
+        </ul>
+      </nav>
+
+      <CartWidget />
     </header>
   )
 }

@@ -22,7 +22,7 @@ export const CarritoProvider = ({children}) => {
     //4) Agregamos algunos métodos para manipular el carrito de compras.
 
     //Provisoriamente verifico por consola: 
-    console.log(carrito);
+    //console.log(carrito);
 
 
     //Función para agregar productos al carrito evitando duplicados: 
