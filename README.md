@@ -1,6 +1,6 @@
 # Proyecto Orion Cosmetics de React con react-router-dom, useState, useContext, vite y Firebase
 
-Este proyecto de *Orion Cosmetics* es una aplicación web construida con React que utiliza diferentes tecnologías, bibliotecas para crear una experiencia de usuario interactiva y realizar compras en linea. La aplicación utiliza `react-router-dom` para gestionar la navegación entre diferentes páginas, `useState` y `useContext` para gestionar el estado de la aplicación, `vite` como el entorno de desarrollo y construcción rápido, y `Firebase` como backend y base de datos en la nube.
+Este proyecto de `Orion Cosmetics` es una aplicación web construida con React que utiliza diferentes tecnologías, bibliotecas para crear una experiencia de usuario interactiva y realizar compras en linea. La aplicación utiliza `react-router-dom` para gestionar la navegación entre diferentes páginas, `useState` y `useContext` para gestionar el estado de la aplicación, `vite` como el entorno de desarrollo y construcción rápido, y `Firebase` como backend y base de datos en la nube.
 
 ## Características principales
 
