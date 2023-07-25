@@ -2,22 +2,16 @@ import { useState, useEffect } from "react";
 import ItemList from "../ItemList/ItemList";
 import { useParams } from "react-router-dom";
 import { collection, getDocs, where, query } from "firebase/firestore";
-
-//Collection la voy a usar para vincular una colección de Firestore (ejemplo "inventario");
-//GetDocs me trae todos los documentos de una colección. 
-//Query la voy a usar para hacer consultas a la BD.
-//Where para usar filtros en las consultas. 
-
 import { db } from "../../services/config";
 
 
-const ItemListContainer = (props) => {
+const ItemListContainer = () => {
     const [productos, setProductos] = useState([]);
 
     const { idCategoria } = useParams();
 
     useEffect(() => {
-        const misProductos = idCategoria ? query(collection(db, "inventario"), where("idCat", "==", idCategoria)) : collection(db, "inventario");
+        const misProductos = idCategoria ? query(collection(db, "productos"), where("idCat", "==", idCategoria)) : collection(db, "productos");
 
         getDocs(misProductos)
             .then(res => {
@@ -33,7 +27,6 @@ const ItemListContainer = (props) => {
 
     return (
         <>
-            <h2> {props.greeting} </h2>
             <ItemList productos={productos} />
         </>
     )

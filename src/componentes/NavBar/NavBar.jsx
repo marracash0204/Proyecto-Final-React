@@ -6,21 +6,21 @@ const NavBar = () => {
   return (
     <header>
       <Link to="/">
-        <img src="../img/logo.png" className='imgMarolio' alt="Logo Marolio" />
+        <img src="../public/logo_Orion.png" className='logo_orion' alt="Logo Orion Cosmetics" />
       </Link>
 
       <nav>
         <ul>
           <li>
-            <NavLink className="miBtn" to="/categoria/2"> Labiales </NavLink>
+            <NavLink className="miBtn" to="/categoria/1"> Labiales </NavLink>
           </li>
 
           <li>
-            <NavLink className="miBtn" to="/categoria/3"> Sombras </NavLink>
+            <NavLink className="miBtn" to="/categoria/3"> Polvos </NavLink>
           </li>
 
           <li>
-            <NavLink className="miBtn" to="/categoria/3"> Sombras </NavLink>
+            <NavLink className="miBtn" to="/categoria/5"> Sombras </NavLink>
           </li>
 
 

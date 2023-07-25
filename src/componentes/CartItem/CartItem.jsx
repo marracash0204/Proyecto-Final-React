@@ -6,7 +6,7 @@ const CartItem = ({item, cantidad}) => {
 
   return (
     <div>
-        <h4> {item.nombre} </h4>
+        <h1> {item.nombre} </h1>
         <p> Cantidad: {cantidad} </p>
         <p> Precio: {item.precio} </p>
         <button className="miBtn" onClick={() => eliminarProducto(item.id)}> Eliminar </button>
