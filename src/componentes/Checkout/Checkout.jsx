@@ -14,25 +14,21 @@ const Checkout = () => {
 
     const { carrito, vaciarCarrito, total, cantidadTotal } = useContext(CarritoContext);
 
-    //Funciones y validaciones: 
 
     const manejadorFormulario = (event) => {
         event.preventDefault();
 
-
-        //Verificamos que los campos esten completos: 
         if (!nombre || !apellido || !telefono || !email || !emailConfirmacion) {
             setError("Por favor completa todos los campos");
             return;
         }
 
-        //Validamos que los campos del email coincidan 
         if (email !== emailConfirmacion) {
             setError("Los campos del email no coinciden, intenta nuevamente.");
             return;
         }
 
-        //Paso 1: Creamos un objeto con todos los datos de la orden de compra. 
+     
 
         const orden = {
             items: carrito.map(producto => ({
@@ -48,43 +44,40 @@ const Checkout = () => {
             email
         };
 
-        //Vamos a modificar el código para que ejecute varias promesas en parelelo, por un lado que actualice el stock de productos y por otro que genere una orden de compra. Promise.All me permite esto. 
 
         Promise.all(
             orden.items.map(async (productoOrden) => {
-                const productoRef = doc(db, "productos", productoOrden.id);
-                //Por cada producto en la coleccion inventario obtengo una referencia, y a partir de esa referencia obtengo el doc. 
+                const productoRef = doc(db, "productos", productoOrden.id); 
                 const productoDoc = await getDoc(productoRef);
                 const stockActual = productoDoc.data().stock;
-                //Data es un método que me permite acceder a la información del documento. 
                 await updateDoc(productoRef, {
                     stock: stockActual - productoOrden.cantidad,
                 })
-                //Modifico el stock y subo la información actualizada. 
+               
             })
         )
             .then(() => {
-                //Guardamos la orden en la base de datos: 
+    
                 addDoc(collection(db, "ordenes"), orden)
                     .then((docRef) => {
                         setOrdenId(docRef.id);
                         vaciarCarrito();
                     })
                     .catch((error) => {
-                        console.log("Error al crear la orden, vamos a morir", error);
-                        setError("Error al crear la orden, por favor vuelva a intentarlo en 4 días");
+                        console.log("Error al crear la orden", error);
+                        setError("Error al crear la orden.");
                     });
             })
             .catch((error) => {
                 console.log("No se puede actualizar el stock", error);
-                setError("No se puede actualizar el stock, intente en Supermercado Vital");
+                setError("No se puede actualizar el stock.");
             })
 
     }
 
     return (
         <div>
-            <h2> Checkout </h2>
+            <h1 className="tituloc"> Checkout </h1>
             <form onSubmit={manejadorFormulario}>
                 {
                     carrito.map(producto => (
@@ -97,6 +90,7 @@ const Checkout = () => {
                     ))
                 }
                 <strong>Cantidad Total: {cantidadTotal} </strong>
+                <strong>Precio Total: {total} </strong>
                 <hr />
 
                 <div className="form-group">
